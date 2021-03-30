@@ -1,0 +1,8 @@
+<h2>新規投稿ページ</h2>
+<%= form_with(model: Post.new) do |form| %>
+  <div class="post_content">
+    <%= form.label 'その気持ち、シェアしよう' %>
+    <%= form.text_field :content %>
+  </div>
+  <%= form.submit '投稿' %>
+<% end %>
