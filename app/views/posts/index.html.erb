@@ -1,1 +1,10 @@
 <h1>FaceLook</h1>
+<%= link_to '今の気持ち、シェアしよう', new_post_path %>
+<table>
+<% @posts.each do |post| %>
+  <tr>
+    <td><%= post.content %></td>
+    <td><%= link_to '詳細を確認する', post_path(post.id) %></td>
+  </tr>
+<% end %>
+</table>
