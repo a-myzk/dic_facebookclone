@@ -4,7 +4,8 @@
 <% @posts.each do |post| %>
   <tr>
     <td><%= post.content %></td>
-    <td><%= link_to '詳細を確認する', post_path(post.id) %></td>
+    <td><%= link_to 'もっと見る', post_path(post.id) %></td>
+    <td><%= link_to '編集', edit_post_path(post.id) %></td>
   </tr>
 <% end %>
 </table>
