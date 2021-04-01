@@ -1,13 +1,13 @@
 <h1>FaceLook</h1>
 <p><%= notice %></p>
-<%= link_to '今の気持ち、シェアしよう', new_post_path %>
+<%= link_to "今の気持ち、シェアしよう", new_post_path %>
 <table>
 <% @posts.each do |post| %>
   <tr>
     <td><%= post.content %></td>
-    <td><%= link_to 'もっと見る', post_path(post.id) %></td>
-    <td><%= link_to '編集', edit_post_path(post.id) %></td>
-    <td><%= link_to '削除', post_path(post.id), method: :delete, data: {confirm: '本当に削除していいですか？'} %></td>
+    <td><%= link_to "詳細を見る", post_path(post.id) %></td>
+    <td><%= link_to "編集", edit_post_path(post.id) %></td>
+    <td><%= link_to "削除", post_path(post.id), method: :delete, data: {confirm: '本当に削除していいですか？'} %></td>
   </tr>
 <% end %>
 </table>

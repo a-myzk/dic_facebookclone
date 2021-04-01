@@ -8,10 +8,14 @@ class PostsController < ApplicationController
   end
   def create
     @post = Post.new(post_params)
-    if @post.save
-      redirect_to posts_path, notice: '投稿しました'
-    else
+    if params[:back]
       render :new
+    else
+      if @post.save
+        redirect_to posts_path, notice: "投稿しました"
+      else
+        render :new
+      end
     end
   end
   def show
@@ -20,14 +24,18 @@ class PostsController < ApplicationController
   end
   def update
     if @post.update(post_params)
-      redirect_to posts_path, notice: '編集しました'
+      redirect_to posts_path, notice: "編集しました"
     else
       render :edit
     end
   end
   def destroy
     @post.destroy
-    redirect_to posts_path, notice: '削除しました'
+    redirect_to posts_path, notice: "削除しました"
+  end
+  def confirm
+    @post = Post.new(post_params)
+    render :new if @post.invalid?
   end
   private
   def post_params
