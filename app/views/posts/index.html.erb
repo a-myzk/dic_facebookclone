@@ -6,7 +6,7 @@
     <td><%= post.content %></td>
     <td><%= link_to 'もっと見る', post_path(post.id) %></td>
     <td><%= link_to '編集', edit_post_path(post.id) %></td>
-    <td><%= link_to '削除', post_path(post.id), method: :delete %></td>
+    <td><%= link_to '削除', post_path(post.id), method: :delete, data: {confirm: '本当に削除していいですか？'} %></td>
   </tr>
 <% end %>
 </table>
