@@ -13,6 +13,9 @@
     <%= form.label :content %>
     <%= form.text_field :content %>
   </div>
+  <%= fields_for :images do |i| %> 
+    <%= i.file_field :image_url %>
+  <% end %>
   <%= form.submit "投稿" %>
 <% end %>
 <%= link_to "ホームに戻る", posts_path %>
